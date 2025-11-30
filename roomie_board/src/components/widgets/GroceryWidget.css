@@ -1,0 +1,8 @@
+.grocery-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.grocery-priority {
+  opacity: 0.7;
+}

@@ -1,0 +1,50 @@
+.lists-widget {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lists-header-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.lists-add-btn {
+  padding: 4px 12px;
+  border-radius: 4px;
+  border: 1px solid #cccccc;
+  background-color: #f5f5f5;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.lists-add-btn:hover {
+  background-color: #eaeaea;
+}
+
+.lists-add-form-container {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px;
+  background-color: #fafafa;
+}
+
+.lists-widget-items {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.lists-widget-item {
+  border-radius: 4px;
+  padding: 6px 8px;
+  background-color: #ffffff;
+  border: 1px solid #eeeeee;
+}
+
+.empty-message {
+  opacity: 0.7;
+  font-size: 0.9rem;
+}

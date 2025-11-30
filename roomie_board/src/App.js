@@ -1,85 +1,73 @@
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Tasks from "./components/Tasks";
-import Notes from "./components/Notes";
 
-const App = () => {
-  const [tasks, setTasks] = useState([]);
-  const [notes, setNotes] = useState([]);
+import HeaderBar from "./components/HeaderBar";
+
+import LoginPage from "./pages/LoginPage";
+import BulletinBoardPage from "./pages/BulletinBoardPage";
+import ListsPage from "./pages/ListsPage";
+import CalendarPage from "./pages/CalendarPage";
+
+import "./App.css";
+
+function App() {
+  const [users, setUsers] = useState([]);
+  const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
-    fetchTasks();
-    fetchNotes();
+    axios.get("http://localhost:3001/users").then((res) => {
+      setUsers(res.data);
+    });
   }, []);
 
-  const fetchTasks = async () => {
-    const response = await axios.get("http://localhost:3001/tasks");
-    setTasks(response.data);
-  };
-
-  const fetchNotes = async () => {
-    const response = await axios.get("http://localhost:3001/notes");
-    setNotes(response.data);
-  };
-
-  const addTask = async (title) => {
-    const response = await axios.post("http://localhost:3001/tasks", {
-      title: title,
-      completed: false,
-    });
-
-    setTasks([...tasks, response.data]);
-  };
-
-  const toggleTask = async (id, completed) => {
-    const response = await axios.put(
-      `http://localhost:3001/tasks/${id}`,
-      { completed: !completed }
-    );
-
-    const updated = tasks.map(task =>
-      task.id === id ? { ...task, ...response.data } : task
-    );
-
-    setTasks(updated);
-  };
-
-  const deleteTask = async (id) => {
-    await axios.delete(`http://localhost:3001/tasks/${id}`);
-    setTasks(tasks.filter(task => task.id !== id));
-  };
-
-  const addNote = async (message) => {
-    const response = await axios.post("http://localhost:3001/notes", {
-      message: message,
-    });
-
-    setNotes([...notes, response.data]);
-  };
-
-  const deleteNote = async (id) => {
-    await axios.delete(`http://localhost:3001/notes/${id}`);
-    setNotes(notes.filter(note => note.id !== id));
-  };
-
   return (
-    <div className="container py-4">
-      <h1 className="mb-4">Roommate Board</h1>
+    <BrowserRouter>
+      {currentUser && <HeaderBar currentUser={currentUser} />}
 
-      <Tasks 
-        tasks={tasks}
-        addTask={addTask}
-        toggleTask={toggleTask}
-        deleteTask={deleteTask}
-      />
+      <Routes>
+        <Route
+          path="/login"
+          element={
+            <LoginPage users={users} onSelectUser={setCurrentUser} />
+          }
+        />
 
-      <Notes
-        notes={notes}
-        addNote={addNote}
-        deleteNote={deleteNote}
-      />
-    </div>
+        <Route
+          path="/"
+          element={
+            currentUser ? (
+              <BulletinBoardPage currentUser={currentUser} users={users} />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+
+        <Route
+          path="/lists"
+          element={
+            currentUser ? (
+              <ListsPage currentUser={currentUser} users={users} />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+
+        <Route
+          path="/calendar"
+          element={
+            currentUser ? (
+              <CalendarPage currentUser={currentUser} users={users} />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
-};
+}
 
 export default App;

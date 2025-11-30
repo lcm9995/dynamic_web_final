@@ -1,0 +1,36 @@
+.login-container {
+  width: 100%;
+  text-align: center;
+  padding: 40px;
+}
+
+.login-title {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.login-subtitle {
+  font-size: 1rem;
+  margin-bottom: 24px;
+}
+
+.login-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.login-btn {
+  padding: 20px 28px;
+  border-radius: 10px;
+  border: none;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.login-btn:hover {
+  transform: scale(1.05);
+}

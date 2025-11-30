@@ -1,6 +1,37 @@
 {
-  "users": [],
-  "tasks": [],
-  "groceries": [],
-  "notes": []
+  "users": [
+    {
+      "id": 1,
+      "name": "Lily",
+      "color": "#f87171"
+    },
+    {
+      "id": 2,
+      "name": "Jess",
+      "color": "#60a5fa"
+    }
+  ],
+  "tasks": [
+    {
+      "title": "Take out trash",
+      "complete": false,
+      "creatorId": 1,
+      "completedById": null,
+      "recurring": true,
+      "frequency": "weekly",
+      "daysOfWeek": null,
+      "id": 1
+    }
+  ],
+  "groceries": [
+    {
+      "title": "Paper towel",
+      "priority": "Medium",
+      "note": "",
+      "bought": false,
+      "price": null,
+      "boughtById": null,
+      "id": 1
+    }
+  ]
 }

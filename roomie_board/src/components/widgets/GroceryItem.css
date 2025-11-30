@@ -1,0 +1,55 @@
+.grocery-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.grocery-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.grocery-checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.grocery-title {
+  font-size: 0.95rem;
+}
+
+.grocery-note {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-left: 22px;
+}
+
+.grocery-price-row {
+  font-size: 0.8rem;
+  margin-left: 22px;
+  color: #444;
+}
+
+.grocery-bought .grocery-title {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+.grocery-priority {
+  font-size: 0.75rem;
+  border-radius: 10px;
+  padding: 2px 8px;
+}
+
+.priority-high {
+  background-color: #ffe0e0;
+}
+
+.priority-medium {
+  background-color: #fff2cc;
+}
+
+.priority-low {
+  background-color: #e4f5e9;
+}

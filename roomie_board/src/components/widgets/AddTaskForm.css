@@ -1,0 +1,49 @@
+.add-task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-row-inline {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.add-task-form label {
+  font-size: 0.85rem;
+}
+
+.add-task-form input[type="text"],
+.add-task-form select {
+  padding: 4px 6px;
+  border-radius: 4px;
+  border: 1px solid #cccccc;
+  font-size: 0.9rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 6px;
+}
+
+.form-actions button {
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid #cccccc;
+  background-color: #f5f5f5;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.form-actions button:hover {
+  background-color: #eaeaea;
+}

@@ -1,0 +1,42 @@
+.header-bar {
+  background-color: #f9eec9;
+  border-bottom: 2px solid #e3d7b8;
+  padding: 12px 16px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-title {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.header-user {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.header-user span {
+  margin-left: 4px;
+}
+.header-nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.header-nav a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #444;
+}
+
+.header-nav a:hover {
+  text-decoration: underline;
+}
+
+.header-user span {
+  font-weight: bold;
+}
