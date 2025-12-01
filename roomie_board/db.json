@@ -14,9 +14,9 @@
   "tasks": [
     {
       "title": "Take out trash",
-      "complete": false,
+      "complete": true,
       "creatorId": 1,
-      "completedById": null,
+      "completedById": 1,
       "recurring": true,
       "frequency": "weekly",
       "daysOfWeek": null,
@@ -28,9 +28,9 @@
       "title": "Paper towel",
       "priority": "Medium",
       "note": "",
-      "bought": false,
+      "bought": true,
       "price": null,
-      "boughtById": null,
+      "boughtById": 1,
       "id": 1
     }
   ]
