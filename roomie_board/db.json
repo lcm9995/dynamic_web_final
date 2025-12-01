@@ -13,24 +13,38 @@
   ],
   "tasks": [
     {
-      "title": "Take out trash",
+      "title": "Take out the trash",
+      "complete": false,
+      "creatorId": 1,
+      "completedById": null,
+      "recurring": true,
+      "frequency": "monthly",
+      "daysOfWeek": null,
+      "isCurrent": false,
+      "id": 1
+    },
+    {
+      "title": "Take out the trash",
       "complete": true,
       "creatorId": 1,
       "completedById": 1,
-      "recurring": true,
-      "frequency": "weekly",
+      "recurring": false,
+      "frequency": null,
       "daysOfWeek": null,
-      "id": 1
+      "isCurrent": true,
+      "id": 2
     }
   ],
   "groceries": [
     {
-      "title": "Paper towel",
+      "title": "Paper towels",
       "priority": "Medium",
       "note": "",
       "bought": true,
-      "price": null,
+      "price": 17,
       "boughtById": 1,
+      "creatorId": 1,
+      "active": true,
       "id": 1
     }
   ]

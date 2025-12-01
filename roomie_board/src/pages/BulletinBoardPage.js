@@ -6,8 +6,10 @@ import TasksWidget from "../components/widgets/TasksWidget";
 import GroceriesWidget from "../components/widgets/GroceryWidget";
 
 export default function BulletinBoardPage(props) {
+  const { currentUser, users } = props; //get current user 
   const [tasks, setTasks] = useState([]);
   const [groceries, setGroceries] = useState([]);
+
 
   /*useEffect(() => {
     axios.get("http://localhost:3001/tasks").then(res => setTasks(res.data));
@@ -28,16 +30,13 @@ export default function BulletinBoardPage(props) {
       .then(res => setGroceries([...groceries, res.data]));
   }*/
 
-  const { currentUser, users } = props;
 
   //const [tasks, setTasks] = useState([]);
   //const [groceries, setGroceries] = useState([]);
 
   useEffect(() => {
     axios.get("http://localhost:3001/tasks").then((res) => setTasks(res.data));
-    axios
-      .get("http://localhost:3001/groceries")
-      .then((res) => setGroceries(res.data));
+    axios.get("http://localhost:3001/groceries").then((res) => setGroceries(res.data));
   }, []);
 
   return (
@@ -46,12 +45,14 @@ export default function BulletinBoardPage(props) {
         <TasksWidget
           tasks={tasks}
           setTasks={setTasks}
+          users = {users}
           currentUser={currentUser}
         />
 
         <GroceriesWidget
           groceries={groceries}
           setGroceries={setGroceries}
+          users={users}
           currentUser={currentUser}
         />
       </div>

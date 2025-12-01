@@ -8,11 +8,14 @@ export default function ListWidget(props) {
     items,
     renderItem,
     onAddItem,
-    AddForm,   
+    AddForm,
+    headers,   
     previewCount = 5,
   } = props;
 
-  const previewItems = items.slice(0, previewCount);
+  //const previewItems = items.slice(0, previewCount);
+
+  //state for adding new item 
   const [isAdding, setIsAdding] = useState(false);
 
   function handleSubmit(formData) {
@@ -43,6 +46,13 @@ export default function ListWidget(props) {
             <AddForm onSubmit={handleSubmit} onCancel={handleCancel} />
           </div>
         )}
+
+        <div className="list-header-row">
+          {headers.map((h, idx) => (
+            <div key={idx} className="list-header-col">{h}</div>
+          ))}
+          <div className="list-header-col action-col"></div>
+        </div>
 
         <div className="lists-widget-items">
           {items.length === 0 ? (
