@@ -22,7 +22,6 @@ export default function HeaderBar() {
             Logged in as <span>{currentUser.name}</span>
             </div>
         )}
-
         </header>
     );
 }
