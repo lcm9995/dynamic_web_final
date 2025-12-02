@@ -2,10 +2,10 @@
   width: 100%;
   min-height: calc(100vh - 60px);
   background-image: url('../assets/corkboard.jpg');
-  background-size: cover;         /* <-- fills screen */
-  background-repeat: no-repeat;   /* no tiling */
-  background-position: center;    /* centered crop */
-  background-attachment: fixed;   /* optional: gives cool parallax effect */
+  background-size: cover;   
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
   padding: 24px;
 }
 .bb-grid {

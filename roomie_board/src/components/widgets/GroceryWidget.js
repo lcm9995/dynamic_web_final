@@ -10,7 +10,6 @@ export default function GroceryWidget(props) {
   const { groceries, setGroceries, users} = props;
   const { currentUser } = useContext(UserContext);
   const visibleGroceries = groceries.filter((g) => g.active !== false);
-
   function handleAddGrocery(formData) {
     const newItem = {
       title: formData.title,
@@ -24,7 +23,6 @@ export default function GroceryWidget(props) {
     };
     axios.post("http://localhost:3001/groceries", newItem).then((res) => setGroceries([...groceries, res.data]));
   }
-
   function handleUpdate(id, fields) {
     const existing = groceries.find((g) => g.id === id);
     if (!existing) return; 
@@ -43,7 +41,6 @@ export default function GroceryWidget(props) {
   }
   function handleDelete(item) {
     if (item.bought) {
-      // keep in DB for contribution history
       const updated = { ...item, active: false };
       axios
         .patch(`http://localhost:3001/groceries/${item.id}`, updated)
@@ -63,9 +60,6 @@ export default function GroceryWidget(props) {
   function findUser(id) {
     return users.find((u) => u.id === id) || null;
   }
-
-
-
   return (
     <ListWidget
       title="Groceries"

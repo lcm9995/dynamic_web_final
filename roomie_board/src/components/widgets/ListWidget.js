@@ -12,21 +12,17 @@ export default function ListWidget(props) {
     headers,   
     previewCount = 5,
   } = props;
-
   //const previewItems = items.slice(0, previewCount);
 
   //state for adding new item 
   const [isAdding, setIsAdding] = useState(false);
-
   function handleSubmit(formData) {
     onAddItem(formData);
     setIsAdding(false);
   }
-
   function handleCancel() {
     setIsAdding(false);
   }
-
   return (
       <Widget title={title} action={{label: `+ Add ${title.slice(0, -1) || "Item"}`,onClick: () => setIsAdding(!isAdding) }}>
       <div className="lists-widget">
@@ -42,7 +38,6 @@ export default function ListWidget(props) {
           ))}
           <div className="list-header-col action-col"></div>
         </div>
-
         <div className="lists-widget-items">
           {items.length === 0 ? (
             <p className="empty-message">No items yet.</p>

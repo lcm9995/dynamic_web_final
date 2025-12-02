@@ -13,16 +13,13 @@
   border-bottom: 1px solid #eee;
   background-color: white;
 }
-
 .col {
   padding: 6px 8px;
   border-right: 1px solid #eee;
 }
-
 .col:last-child {
   border-right: none;
 }
-
 .status-col input {
   width: 18px;
   height: 18px;
@@ -31,7 +28,6 @@
 .delete-col {
   text-align: center;
 }
-
 .delete-btn {
   border: none;
   background: none;
@@ -40,7 +36,6 @@
   cursor: pointer;
   padding: 2px 4px;
 }
-
 .delete-btn:hover {
   color: #b94744;
 }

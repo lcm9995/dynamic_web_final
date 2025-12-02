@@ -36,34 +36,29 @@
 .list-header-row {
   display: grid;
   grid-template-columns:
-    60px      /* status */
-    2fr       /* title */
-    1fr       /* col3 (creator/priority) */
-    1fr       /* col4 */
-    1fr       /* col5 */
-    1fr       /* col6 */
-    40px;     /* delete */
+    60px 
+    2fr
+    1fr
+    1fr
+    1fr 
+    1fr  
+    40px;     
   border-bottom: 2px solid #ccc;
   font-size: 13px;
   font-weight: 600;
   color: #444;
   background-color: white;
 }
-
 .list-header-col {
   padding: 6px 8px;
   border-right: 1px solid #ddd;
 }
-
 .list-header-col:last-child {
   border-right: none;
 }
-
 .action-col {
   text-align: center;
 }
-
-
 .lists-widget-item {
   border-bottom: 1px solid #eee;
   padding: 0;
@@ -72,7 +67,6 @@
   padding-top: 0;
 
 }
-
 .empty-message {
   font-size: 14px;
   color: #777;

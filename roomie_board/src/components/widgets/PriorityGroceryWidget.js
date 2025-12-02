@@ -14,7 +14,6 @@ export default function UrgentGroceriesWidget({ groceries, users }) {
   function findUser(id) {
     return users.find((u) => u.id === id) || null;
   }
-
   return (
     <Widget title="Urgent Groceries" className="pg-widget">
       {urgent.length === 0 ? (

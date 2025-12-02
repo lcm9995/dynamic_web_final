@@ -2,14 +2,12 @@
   font-size: 14px;
   color: #666;
 }
-
 .contrib-chart-container {
   width: 100%;
   height: auto;
   padding: 5px;
   margin: 0 auto;
 }
-
 .contrib-legend {
   display: flex;
   align-items: center;
@@ -17,28 +15,23 @@
   font-size: 12px;
   margin-bottom: 8px;
 }
-
 .legend-box {
   width: 12px;
   height: 12px;
   border-radius: 3px;
   display: inline-block;
 }
-
 .legend-chores {
   background: #90caf9;
 }
-
 .legend-groceries {
   background: #ffcc80;
 }
-
 .contrib-list {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
-
 .contrib-row {
   display: grid;
   grid-template-columns: 1.1fr 2fr 1.3fr;
@@ -46,38 +39,31 @@
   gap: 8px;
   font-size: 13px;
 }
-
 .contrib-name {
   display: flex;
   align-items: center;
   gap: 6px;
 }
-
 .contrib-dot {
   width: 10px;
   height: 10px;
   border-radius: 999px;
 }
-
 .contrib-bars {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
-
 .contrib-bar {
   height: 8px;
   border-radius: 999px;
 }
-
 .chores-bar {
   background: #90caf9;
 }
-
 .groceries-bar {
   background: #ffcc80;
 }
-
 .contrib-values {
   display: flex;
   flex-direction: column;
