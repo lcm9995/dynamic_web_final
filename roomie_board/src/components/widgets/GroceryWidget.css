@@ -1,6 +1,7 @@
 .grocery-item {
   display: flex;
   justify-content: space-between;
+  background-color: white;
 }
 
 .grocery-priority {

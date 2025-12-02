@@ -2,10 +2,13 @@ import "./GroceryWidget.css";
 import ListWidget from "./ListWidget";
 import GroceryItem from "./GroceryItem";
 import axios from "axios";
-import AddGroceryForm from "./AddGroceryForm"
+import AddGroceryForm from "./AddGroceryForm";
+import { useContext } from "react";
+import UserContext from "../../context/UserContext";
 
 export default function GroceryWidget(props) {
-  const { groceries, setGroceries, users, currentUser } = props;
+  const { groceries, setGroceries, users} = props;
+  const { currentUser } = useContext(UserContext);
   const visibleGroceries = groceries.filter((g) => g.active !== false);
 
   function handleAddGrocery(formData) {
@@ -66,6 +69,7 @@ export default function GroceryWidget(props) {
   return (
     <ListWidget
       title="Groceries"
+      headers={["Status", "Title", "Priority", "Note", "Price", "Buyer"]}
       items={visibleGroceries}
       AddForm={AddGroceryForm}
       onAddItem={handleAddGrocery}

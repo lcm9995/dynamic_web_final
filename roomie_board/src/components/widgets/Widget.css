@@ -1,16 +1,83 @@
-.widget {
-  background-color: #ffffff;
-  border-radius: 8px;
-  border: 1px solid #dddddd;
-  padding: 16px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+.widget-base {
+  background: aqua;
+  position: relative; 
+  border-radius: 12px;
+  padding: 12px 16px 16px 16px; /* less top padding */
+  border: 1px solid #e1e1e1;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 8%);
+  margin-bottom: 8px;
+  margin-top: 8px;
+
+}
+.rt-widget {
+  background: #ffe8f2;
+  border: 2px solid #ffbcd9;
+  max-width: 300px;
+  height: auto;
+  
+}
+.pg-widget {
+  background: #fff7c2;
+  border: 2px solid #ffe87a;
+  max-width: 200px;
+  height: auto;
+}
+
+.rt-widget::before,
+.pg-widget::before,
+.contrib-widget::before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  width: 80px;
+  height: 26px;
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 4px;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.15);
+  z-index: 2;
+}
+
+.rt-widget::before {
+  left: 14px;
+  transform: rotate(-4deg);
+}
+
+.pg-widget::before {
+  left: 50%;
+  transform: translateX(-50%) rotate(2deg);
+}
+
+.contrib-widget::before {
+  right: 14px;
+  transform: rotate(5deg);
+}
+
+.contrib-widget {
+  background: #e9ffe7;
+  border: 2px solid #b9e8b5;
+  max-width: 500px;
+  height: auto;
+  transform: rotate(-0.5deg);
+}
+.widget-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;    /* keeps it tight */
 }
 
 .widget-title {
-  margin: 0 0 10px 0;
-  font-size: 1.2rem;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
 }
 
-.widget-content {
-  font-size: 0.95rem;
+.widget-action {
+  padding: 6px 14px;
+  background: #efefef;
+  border-radius: 6px;
+  border: 1px solid #d0d0d0;
+  cursor: pointer;
+  font-size: 14px;
 }

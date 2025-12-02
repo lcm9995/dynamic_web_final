@@ -1,4 +1,24 @@
+.bulletin-board {
+  width: 100%;
+  min-height: calc(100vh - 60px);
+  background-image: url('../assets/corkboard.jpg');
+  background-size: cover;         /* <-- fills screen */
+  background-repeat: no-repeat;   /* no tiling */
+  background-position: center;    /* centered crop */
+  background-attachment: fixed;   /* optional: gives cool parallax effect */
+  padding: 24px;
+}
+.bb-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.4fr);
+  gap: 20px;
+}
 
+.bb-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 .bulletin-container {
   position: relative;
   background-color: #f0e7d8;  

@@ -3,10 +3,12 @@ import ListWidget from "./ListWidget";
 import TaskItem from "./TaskItem";
 import axios from "axios";
 import AddTaskForm from "./AddTaskForm";
-
+import { useContext } from "react";
+import UserContext from "../../context/UserContext";
 
 export default function TasksWidget(props) {
-  const { tasks, setTasks, users, currentUser } = props;
+  const { tasks, setTasks, users} = props;
+  const { currentUser } = useContext(UserContext);
   //only show tasks that are marked as "current"
   const visibleTasks = tasks.filter((t) => t.isCurrent !== false);
   

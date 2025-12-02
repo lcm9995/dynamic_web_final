@@ -1,17 +1,17 @@
 .lists-page-container {
-  padding: 20px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 10px;
 }
 
 .lists-page-title {
   font-size: 1.8rem;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .lists-page-section {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 5px;
 }

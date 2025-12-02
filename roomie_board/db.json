@@ -9,6 +9,11 @@
       "id": 2,
       "name": "Jess",
       "color": "#60a5fa"
+    },
+    {
+      "id": 3,
+      "name": "Joey",
+      "color": "#008000"
     }
   ],
   "tasks": [
@@ -24,7 +29,29 @@
       "id": 1
     },
     {
-      "title": "Take out the trash",
+      "title": "Take out trash",
+      "complete": true,
+      "creatorId": 1,
+      "completedById": 2,
+      "recurring": true,
+      "frequency": "weekly",
+      "daysOfWeek": null,
+      "isCurrent": true,
+      "id": 3
+    },
+    {
+      "title": "Dishes",
+      "complete": true,
+      "creatorId": 1,
+      "completedById": 3,
+      "recurring": false,
+      "frequency": null,
+      "daysOfWeek": null,
+      "isCurrent": true,
+      "id": 4
+    },
+    {
+      "title": "Vacuum",
       "complete": true,
       "creatorId": 1,
       "completedById": 1,
@@ -32,7 +59,7 @@
       "frequency": null,
       "daysOfWeek": null,
       "isCurrent": true,
-      "id": 2
+      "id": 5
     }
   ],
   "groceries": [
@@ -46,6 +73,61 @@
       "creatorId": 1,
       "active": true,
       "id": 1
+    },
+    {
+      "title": "Toilet Paper",
+      "priority": "High",
+      "note": "",
+      "bought": false,
+      "price": 2,
+      "boughtById": null,
+      "creatorId": 1,
+      "active": true,
+      "id": 2
+    },
+    {
+      "title": "Laundry detergent",
+      "priority": "Medium",
+      "note": "",
+      "bought": false,
+      "price": null,
+      "boughtById": null,
+      "creatorId": 1,
+      "active": true,
+      "id": 3
+    },
+    {
+      "title": "Trashbags",
+      "priority": "High",
+      "note": "",
+      "bought": false,
+      "price": null,
+      "boughtById": null,
+      "creatorId": 1,
+      "active": true,
+      "id": 4
+    },
+    {
+      "title": "Milk",
+      "priority": "Low",
+      "note": "",
+      "bought": false,
+      "price": null,
+      "boughtById": null,
+      "creatorId": 1,
+      "active": true,
+      "id": 5
+    },
+    {
+      "title": "Salmon",
+      "priority": "Low",
+      "note": "",
+      "bought": true,
+      "price": 11,
+      "boughtById": 3,
+      "creatorId": 3,
+      "active": true,
+      "id": 6
     }
   ]
 }

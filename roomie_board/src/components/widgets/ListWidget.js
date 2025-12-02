@@ -28,19 +28,8 @@ export default function ListWidget(props) {
   }
 
   return (
-    <Widget title={title}>
+      <Widget title={title} action={{label: `+ Add ${title.slice(0, -1) || "Item"}`,onClick: () => setIsAdding(!isAdding) }}>
       <div className="lists-widget">
-
-        <div className="lists-header-row">
-          <button
-            className="lists-add-btn"
-            type="button"
-            onClick={() => setIsAdding(!isAdding)}
-          >
-            {isAdding ? "Close" : `+ Add ${title.slice(0, -1) || "Item"}`}
-          </button>
-        </div>
-
         {isAdding && AddForm && (
           <div className="lists-add-form-container">
             <AddForm onSubmit={handleSubmit} onCancel={handleCancel} />

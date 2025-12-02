@@ -1,14 +1,19 @@
 import "./Widget.css";
 
 export default function Widget(props) {
-  const { title, children } = props;
-
+  const { title, children, action, className } = props;
   return (
-    <div className="widget">
-      <h2 className="widget-title">{title}</h2>
-      <div className="widget-content">
-        {children}
+    <div className={`widget-base ${className}`}>
+      <div className="widget-title-row">
+        <h2 className="widget-title">{title}</h2>
+        {action && (
+          <button className="widget-action" onClick={action.onClick}>
+            {action.label}
+          </button>
+        )}
       </div>
+
+      {children}
     </div>
   );
 }

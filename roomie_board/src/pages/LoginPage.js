@@ -1,14 +1,15 @@
 import "./LoginPage.css";
 import { useNavigate } from "react-router-dom";
+import UserContext from "../context/UserContext";
+import { useContext } from "react";
 
-export default function LoginPage({ users, onSelectUser }) {
+export default function LoginPage({users}) {
   const navigate = useNavigate();
-
+  const {setCurrentUser} = useContext(UserContext);
   function handleLogin(user) {
-    onSelectUser(user);
+    setCurrentUser(user);
     navigate("/");
   }
-
   return (
     <div className="login-container">
       <h1 className="login-title">Roommate Login</h1>

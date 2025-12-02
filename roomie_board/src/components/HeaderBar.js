@@ -1,8 +1,11 @@
 import "./HeaderBar.css";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import UserContext from "../context/UserContext";
 
-export default function HeaderBar(props) {
-    const {currentUser} = props;
+export default function HeaderBar() {
+    //const {currentUser} = props;
+    const { currentUser } = useContext(UserContext);
     return (
         <header className="header-bar">
 

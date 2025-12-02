@@ -4,7 +4,7 @@ export default function GroceryItem(props) {
   const { item, creator, buyer, onUpdate, onDelete} = props;
   const [showPriceForm, setShowPriceForm] = useState(false);
   const [priceInput, setPriceInput] = useState("")
-  const colorUser = buyer ? buyer.color : null;
+
   function handleCheckbox(e) {
     const checked = e.target.checked;
 
@@ -32,34 +32,29 @@ export default function GroceryItem(props) {
     }
   }
   return (
-   <div className={`grocery-item ${item.bought ? "grocery-bought" : ""}`}>
-      <div className="grocery-main-row">
-        <label className="grocery-checkbox-row">
-          <input
-            type="checkbox"
-            checked={item.bought}
-            onChange={handleCheckbox}
-            style={buyer?.color ? { accentColor: buyer.color } : null}
-          />
-          <span>{item.title}</span>
-        </label>
+   <div className="grocery-row">
 
-        <span className={`priority-chip ${item.priority.toLowerCase()}`}>
-          {item.priority}
-        </span>
-
-        <button className="grocery-delete-btn" onClick={onDelete}>
-          ✕
-        </button>
+      <div className="col status-col">
+        <input
+          type="checkbox"
+          checked={item.bought}
+          onChange={handleCheckbox}
+          style={buyer?.color ? { accentColor: buyer.color } : null}
+        />
       </div>
 
-      <div className="grocery-meta">
-        {creator && <span>Added by {creator.name}</span>}
-        {buyer && <span>Bought by {buyer.name}</span>}
-        {item.note && <span>{item.note}</span>}
-        {item.bought && item.price != null && (
-          <span>${item.price.toFixed(2)}</span>
-        )}
+      <div className="col title-col">{item.title}</div>
+      <div className="col priority-col">{item.priority}</div>
+      <div className="col note-col">{item.note || ""}</div>
+
+      <div className="col price-col">
+        {item.bought && item.price != null ? `$${item.price.toFixed(2)}` : ""}
+      </div>
+
+      <div className="col buyer-col"> {buyer ? buyer.name : ""}</div>
+
+      <div className="col delete-col">
+        <button className="delete-btn" onClick={onDelete}>✕</button>
       </div>
 
       {showPriceForm && (

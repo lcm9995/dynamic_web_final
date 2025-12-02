@@ -1,0 +1,65 @@
+.rt-empty {
+  font-size: 14px;
+  color: #666;
+}
+
+.rt-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.rt-item {
+  padding: 8px 4px;
+  border-bottom: 1px solid #eee;
+}
+
+.rt-item:last-child {
+  border-bottom: none;
+}
+
+.rt-main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rt-status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #f0b54d;
+}
+
+.rt-status-dot.rt-done {
+  background: #4caf50;
+}
+
+.rt-title {
+  font-size: 14px;
+}
+
+.rt-title-done {
+  text-decoration: line-through;
+  color: #777;
+}
+
+.rt-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+  font-size: 12px;
+  color: #555;
+}
+
+.rt-tag {
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: #ffe9a9;
+  font-size: 11px;
+}
+
+.rt-completed {
+  color: #388e3c;
+}

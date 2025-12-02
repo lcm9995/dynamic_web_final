@@ -6,35 +6,30 @@ const { task, creator, completer, onToggleComplete, onDelete } = props;
   const colorUser = completer || creator;
 
   return (
-    <div className={`task-item ${task.complete ? "task-complete" : ""}`}>
-      <div className="task-main-row">
-        <label className="task-main">
-          <input
-            type="checkbox"
-            checked={task.complete}
-            onChange={(e) => onToggleComplete(e.target.checked)}
-            style={colorUser?.color ? { accentColor: colorUser.color } : null}
-          />
-          <span>{task.title}</span>
-        </label>
+    <div className="task-row">
 
-        <button className="task-delete-btn" onClick={onDelete}>
-          ✕
-        </button>
+      <div className="col status-col">
+        <input
+          type="checkbox"
+          checked={task.complete}
+          onChange={(e) => onToggleComplete(e.target.checked)}
+        />
       </div>
 
-      <div className="task-meta">
-        {creator && <span>Created by {creator.name}</span>}
-        {completer && <span>Done by {completer.name}</span>}
-        {task.recurring && <span>Recurring</span>}
-        {task.recurring && task.frequency && (
-          <span>
-            {task.frequency === "daysOfWeek"
-              ? `On: ${(task.daysOfWeek || []).join(", ")}`
-              : task.frequency}
-          </span>
-        )}
+      <div className="col title-col">{task.title}</div>
+
+      <div className="col creator-col">{creator?.name || ""}</div>
+
+      <div className="col completer-col">{completer?.name || ""}</div>
+
+      <div className="col recurring-col">
+        {task.recurring ? task.frequency : ""}
       </div>
+
+      <div className="col delete-col">
+        <button className="delete-btn" onClick={onDelete}>✕</button>
+      </div>
+
     </div>
   );
 }
