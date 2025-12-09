@@ -1,12 +1,74 @@
 .sticky-note {
-  width: 140px;
-  min-height: 140px;
-  background: #fff9a8;
+  width: 180px;
+  min-height: 150px;
   padding: 12px;
   border-radius: 6px;
+  background: #fff79a; 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
   position: absolute;
-  box-shadow: 2px 4px 8px rgba(0,0,0,0.15);
   cursor: grab;
-  font-family: "Comic Sans MS", "Bradley Hand", cursive;
-  font-size: 0.9rem;
+  font-family: "Patrick Hand", sans-serif;
+  z-index: 10002;
+  pointer-events: auto;
+}
+
+.sticky-note:active {
+  cursor: grabbing;
+}
+
+.note-delete {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  border: none;
+  background: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.note-text {
+  margin-top: 20px;
+  white-space: pre-wrap;
+  cursor: text;
+}
+
+.note-textarea {
+  width: 100%;
+  height: 90px;
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.6);
+  border-radius: 4px;
+  resize: none;
+}
+
+.note-save-btn {
+  margin-top: 8px;
+  border: none;
+  padding: 4px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.sticky-header {
+  height: 8px;
+  width: 100%;
+  background: transparent;
+  cursor: move;
+  position: relative;
+}
+
+.note-palette {
+  display: flex;
+  gap: 8px;
+  margin: 8px 0 6px 0;
+}
+
+.note-palette-swatch {
+  width: 34px;
+  height: 18px;
+  border-radius: 6px;
+  border: 1px solid rgba(0,0,0,0.08);
+  cursor: pointer;
+  padding: 0;
 }

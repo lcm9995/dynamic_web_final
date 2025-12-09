@@ -6,10 +6,35 @@ import AddGroceryForm from "./AddGroceryForm";
 import { useContext } from "react";
 import UserContext from "../../context/UserContext";
 
+
 export default function GroceryWidget(props) {
+
   const { groceries, setGroceries, users} = props;
   const { currentUser } = useContext(UserContext);
-  const visibleGroceries = groceries.filter((g) => g.active !== false);
+  function getPriorityValue(item) {
+    if (!item.priority) return 3;  
+
+    if (item.priority === "High") return 1;
+    else if (item.priority === "Medium") return 2;
+    else return 3; 
+  }
+  const visibleGroceries = groceries.filter((g) => g.active !== false).slice().sort((a, b) => {
+      // incomplete first
+      if (a.bought !== b.bought) return a.bought ? 1 : -1;
+      if (!a.bought && !b.bought) {
+        //show incomplete items by priority value
+        const pa = getPriorityValue(a)
+        const pb = getPriorityValue(b);
+        if (pa !== pb) return pa - pb;
+          return a.createdAt - b.createdAt;
+      }
+      if (a.bought && b.bought) {
+        return b.boughtAt - a.boughtAt;
+      }
+      if (a.bought && b.bought) return b.boughtAt - a.boughtAt;
+      return 0;
+    });
+
   function handleAddGrocery(formData) {
     const newItem = {
       title: formData.title,
@@ -19,7 +44,9 @@ export default function GroceryWidget(props) {
       price: null,
       boughtById: null,
       creatorId: currentUser.id,
-      active: true
+      active: true,
+      createdAt: Date.now(), 
+      boughtAt: null
     };
     axios.post("http://localhost:3001/groceries", newItem).then((res) => setGroceries([...groceries, res.data]));
   }
@@ -30,8 +57,12 @@ export default function GroceryWidget(props) {
     if (fields.bought === true && !existing.boughtById) {
       updated.boughtById = currentUser.id;
     }
+    if (fields.bought === true && !existing.boughtAt) {
+      updated.boughtAt = Date.now();
+    }
     if (fields.bought === false) {
       updated.boughtById = null;
+      updated.boughtAt = null;
     }
     axios
       .patch(`http://localhost:3001/groceries/${id}`, updated)

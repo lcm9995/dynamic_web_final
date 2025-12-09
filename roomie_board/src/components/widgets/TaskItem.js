@@ -13,6 +13,7 @@ const { task, creator, completer, onToggleComplete, onDelete } = props;
           type="checkbox"
           checked={task.complete}
           onChange={(e) => onToggleComplete(e.target.checked)}
+          style={colorUser?.color ? { accentColor: colorUser.color } : null}
         />
       </div>
 

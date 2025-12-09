@@ -9,8 +9,16 @@ import UserContext from "../../context/UserContext";
 export default function TasksWidget(props) {
   const { tasks, setTasks, users} = props;
   const { currentUser } = useContext(UserContext);
-  //only show tasks that are marked as "current"
-  const visibleTasks = tasks.filter((t) => t.isCurrent !== false);
+
+  const visibleTasks = tasks.filter((t) => t.isCurrent !== false).slice().sort((a, b) => {
+    //show incomplete tasks first
+    if (a.complete !== b.complete) return a.complete ? 1 : -1;
+    //show the oldest incomplete tasks before newer incomplete
+    if (!a.complete && !b.complete) return a.createdAt - b.createdAt;
+    // show the most recently completed tasks before older completed
+    if (a.complete && b.complete) return b.completedAt - a.completedAt;
+    return 0;});
+
   
   function handleAddTask(formData) {
     const newTask = {
@@ -21,7 +29,9 @@ export default function TasksWidget(props) {
       recurring: formData.recurring,
       frequency: formData.frequency,
       daysOfWeek: formData.daysOfWeek,
-      isCurrent: true
+      isCurrent: true,
+      createdAt: Date.now(),
+      completedAt: null 
     };
     axios.post("http://localhost:3001/tasks", newTask).then((res) => {setTasks([...tasks, res.data]);});
   } 
@@ -36,7 +46,8 @@ export default function TasksWidget(props) {
     const updated = {
       ...task,
       complete: checked,
-      completedById: checked ? currentUser.id : null
+      completedById: checked ? currentUser.id : null,
+      completedAt: checked ? Date.now() : null
     };
     axios.patch(`http://localhost:3001/tasks/${taskId}`, updated).then((res) => 
       {setTasks(tasks.map((t) => (t.id === taskId ? res.data : t)));

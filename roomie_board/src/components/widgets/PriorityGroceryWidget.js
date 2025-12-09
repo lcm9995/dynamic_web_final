@@ -1,26 +1,21 @@
 import Widget from "./Widget";
 import "./PriorityGroceryWidget.css";
 export default function UrgentGroceriesWidget({ groceries, users }) {
-  const urgent = groceries
-    .filter((g) => g.active !== false)
-    .filter((g) =>
-      g.priority
-        ? g.priority.toLowerCase() === "high" ||
-          g.priority.toLowerCase() === "urgent"
-        : false
-    )
-    .slice(0, 5);
+   const visible = groceries.filter(g => g.active !== false && g.bought === false).sort((a, b) => {
+      const order = { High: 1, Medium: 2, Low: 3 };
+      return order[a.priority] - order[b.priority];
+    });
 
   function findUser(id) {
     return users.find((u) => u.id === id) || null;
   }
   return (
-    <Widget title="Urgent Groceries" className="pg-widget">
-      {urgent.length === 0 ? (
-        <p className="ug-empty">No urgent items.</p>
+    <Widget title="Grocery list" className="pg-widget">
+      {visible.length === 0 ? (
+        <p className="ug-empty">No items.</p>
       ) : (
         <ul className="ug-list">
-          {urgent.map((item) => {
+          {visible.map((item) => {
             const buyer = findUser(item.boughtById);
             return (
               <li key={item.id} className="ug-item">

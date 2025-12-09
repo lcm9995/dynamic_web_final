@@ -7,7 +7,7 @@
     },
     {
       "id": 2,
-      "name": "Jess",
+      "name": "Gabriella",
       "color": "#60a5fa"
     },
     {
@@ -32,12 +32,13 @@
       "title": "Take out trash",
       "complete": true,
       "creatorId": 1,
-      "completedById": 2,
+      "completedById": 3,
       "recurring": true,
       "frequency": "weekly",
       "daysOfWeek": null,
       "isCurrent": true,
-      "id": 3
+      "id": 3,
+      "completedAt": 1765253729536
     },
     {
       "title": "Dishes",
@@ -48,18 +49,33 @@
       "frequency": null,
       "daysOfWeek": null,
       "isCurrent": true,
-      "id": 4
+      "id": 4,
+      "completedAt": 1765253730430
+    },
+    {
+      "title": "Vacuum",
+      "complete": false,
+      "creatorId": 1,
+      "completedById": null,
+      "recurring": false,
+      "frequency": null,
+      "daysOfWeek": null,
+      "isCurrent": true,
+      "id": 5,
+      "completedAt": null
     },
     {
       "title": "Vacuum",
       "complete": true,
       "creatorId": 1,
-      "completedById": 1,
-      "recurring": false,
-      "frequency": null,
+      "completedById": 3,
+      "recurring": true,
+      "frequency": "weekly",
       "daysOfWeek": null,
       "isCurrent": true,
-      "id": 5
+      "createdAt": 1765252630620,
+      "completedAt": 1765253731894,
+      "id": 6
     }
   ],
   "groceries": [
@@ -69,54 +85,58 @@
       "note": "",
       "bought": true,
       "price": 17,
-      "boughtById": 1,
+      "boughtById": 2,
       "creatorId": 1,
-      "active": true,
+      "active": false,
       "id": 1
     },
     {
       "title": "Toilet Paper",
       "priority": "High",
       "note": "",
-      "bought": false,
+      "bought": true,
       "price": 2,
-      "boughtById": null,
+      "boughtById": 1,
       "creatorId": 1,
-      "active": true,
-      "id": 2
+      "active": false,
+      "id": 2,
+      "boughtAt": 1765252498229
     },
     {
       "title": "Laundry detergent",
       "priority": "Medium",
       "note": "",
-      "bought": false,
-      "price": null,
-      "boughtById": null,
+      "bought": true,
+      "price": 2,
+      "boughtById": 1,
       "creatorId": 1,
-      "active": true,
-      "id": 3
+      "active": false,
+      "id": 3,
+      "boughtAt": 1765252502342
     },
     {
       "title": "Trashbags",
       "priority": "High",
       "note": "",
-      "bought": false,
-      "price": null,
-      "boughtById": null,
+      "bought": true,
+      "price": 12,
+      "boughtById": 1,
       "creatorId": 1,
-      "active": true,
-      "id": 4
+      "active": false,
+      "id": 4,
+      "boughtAt": 1765252499173
     },
     {
       "title": "Milk",
       "priority": "Low",
       "note": "",
-      "bought": false,
-      "price": null,
-      "boughtById": null,
+      "bought": true,
+      "price": 10,
+      "boughtById": 1,
       "creatorId": 1,
-      "active": true,
-      "id": 5
+      "active": false,
+      "id": 5,
+      "boughtAt": 1765252509589
     },
     {
       "title": "Salmon",
@@ -124,11 +144,66 @@
       "note": "",
       "bought": true,
       "price": 11,
-      "boughtById": 3,
+      "boughtById": 1,
       "creatorId": 3,
+      "active": false,
+      "id": 6,
+      "boughtAt": 1765252511168
+    },
+    {
+      "title": "toilet paper",
+      "priority": "High",
+      "note": "",
+      "bought": false,
+      "price": 2,
+      "boughtById": null,
+      "creatorId": 1,
       "active": true,
-      "id": 6
+      "createdAt": 1765252562073,
+      "boughtAt": null,
+      "id": 7
+    },
+    {
+      "title": "dish soap",
+      "priority": "High",
+      "note": "",
+      "bought": false,
+      "price": 2,
+      "boughtById": null,
+      "creatorId": 1,
+      "active": true,
+      "createdAt": 1765252585727,
+      "boughtAt": null,
+      "id": 8
+    },
+    {
+      "title": "apples",
+      "priority": "High",
+      "note": "granny smith",
+      "bought": false,
+      "price": null,
+      "boughtById": null,
+      "creatorId": 1,
+      "active": true,
+      "createdAt": 1765252599033,
+      "boughtAt": null,
+      "id": 9
     }
   ],
-  "notes": []
+  "notes": [
+    {
+      "text": "Move night tomorrow ",
+      "x": 567,
+      "y": 417,
+      "color": "#c6e4ff",
+      "id": 1
+    },
+    {
+      "text": "Can someone feed the cat when u get home tn ? - Lily",
+      "x": 1056,
+      "y": 390,
+      "color": "#FFF79A",
+      "id": 2
+    }
+  ]
 }
